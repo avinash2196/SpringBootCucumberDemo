@@ -60,6 +60,12 @@
             <version>7.14.0</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-junit-platform-engine</artifactId>
+            <version>7.14.0</version>
+            <scope>test</scope>
+        </dependency>
         <!-- Lombok dependency -->
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -67,7 +73,12 @@
             <version>1.18.26</version> <!-- Use the latest version -->
             <scope>provided</scope>
         </dependency>
-
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-suite-api</artifactId>
+            <version>1.10.0</version> <!-- Use the latest version -->
+            <scope>test</scope>
+        </dependency>
         <!-- JUnit -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
