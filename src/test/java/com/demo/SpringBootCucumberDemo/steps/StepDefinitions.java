@@ -1,5 +1,6 @@
 package com.demo.SpringBootCucumberDemo.steps;
 
+import com.demo.SpringBootCucumberDemo.service.DemoService;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -11,6 +12,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class StepDefinitions {
 
+    @Autowired
+    private DemoService demoService;
     @Autowired
     private TestRestTemplate restTemplate;
 
