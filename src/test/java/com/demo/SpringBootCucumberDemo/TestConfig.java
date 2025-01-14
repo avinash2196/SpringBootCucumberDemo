@@ -1,3 +1,4 @@
+/*
 package com.demo.SpringBootCucumberDemo;
 
 import org.springframework.context.annotation.Configuration;
@@ -5,3 +6,4 @@ import org.springframework.context.annotation.Configuration;
     public class TestConfig {
         // Add any beans or configuration needed for testing
     }
+*/

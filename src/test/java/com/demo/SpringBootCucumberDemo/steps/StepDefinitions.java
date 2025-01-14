@@ -1,36 +1,40 @@
-/*
 package com.demo.SpringBootCucumberDemo.steps;
 
-import com.demo.SpringBootCucumberDemo.service.DemoService;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.http.ResponseEntity;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
-@SpringBootTest
 public class StepDefinitions {
 
     @Autowired
-    private DemoService demoService;
-    private int a, b, result;
+    private TestRestTemplate restTemplate;
 
-    @Given("I have two numbers {int} and {int}")
-    public void i_have_two_numbers_and(int num1, int num2) {
-        a = num1;
-        b = num2;
+    private String date;
+    private String name;
+    private Long id;
+    private ResponseEntity<String> response;
+
+    @Given("the client sets query parameters date to {string}, name to {string}, and id to {long}")
+    public void setQueryParameters(String date, String name, Long id) {
+        this.date = date;
+        this.name = name;
+        this.id = id;
     }
 
-    @When("I add them")
-    public void i_add_them() {
-        result = demoService.add(a , b);
+    @When("the client sends a GET request to {string}")
+    public void sendGetRequest(String endpoint) {
+        String url = String.format("%s?localDate=%s&stringId=%s&itemId=%d", endpoint, date, name, id);
+        response = restTemplate.getForEntity(url, String.class);
     }
 
-    @Then("I should get {int}")
-    public void i_should_get(int expected) {
-        assertEquals(expected, result);
+    @Then("the response status should be {int}")
+    public void verifyResponseStatus(int statusCode) {
+        assertThat(response.getStatusCodeValue()).isEqualTo(statusCode);
     }
+
 }
-*/
