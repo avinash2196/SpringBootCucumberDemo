@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class SpringBootCucumberDemoApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(SpringBootCucumberDemoApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(SpringBootCucumberDemoApplication.class, args);
+    }
 }
