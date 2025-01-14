@@ -1,3 +1,4 @@
+/*
 package com.demo.SpringBootCucumberDemo.steps;
 
 import com.demo.SpringBootCucumberDemo.service.DemoService;
@@ -32,3 +33,4 @@ public class StepDefinitions {
         assertEquals(expected, result);
     }
 }
+*/

@@ -1,25 +1,23 @@
 package com.demo.SpringBootCucumberDemo.controller;
 
-import com.demo.SpringBootCucumberDemo.models.DemoRequest;
-import com.demo.SpringBootCucumberDemo.models.DemoResponse;
-import org.springframework.web.bind.annotation.PostMapping;
+import com.demo.SpringBootCucumberDemo.service.DemoService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.time.LocalDate;
 
 @RestController
+@RequiredArgsConstructor
 public class DemoController {
 
-    @PostMapping("/test")
-    public DemoResponse post(DemoRequest request){
-        DemoResponse response=new DemoResponse();
-        Set<String> responseSet =new HashSet<>();
-        responseSet.add("test");
-        responseSet.add("test2");
-        response.setData(responseSet);
-        response.setSample("sample");
-        return response;
+    private final DemoService demoService;
+
+    @GetMapping("/test")
+    public String GetMethod(@RequestParam LocalDate localDate, @RequestParam long itemId, @RequestParam String stringId) {
+        demoService.printInputs(localDate, itemId, stringId);
+        return "OK";
 
     }
 }
